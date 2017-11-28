@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript modules</title>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="genderModule.js"></script>
+</head>
+
+<body>
+    <div id="gender_2016"></div>
+    <div id="gender_2015"></div>
+    <div id="gender_2014"></div>
+    <div id="gender_2013"></div>
+    <div id="gender_2012"></div>
+    <div id="gender_2011"></div>
+    <div id="gender_2010"></div>
+    <script>
+        var myGenderChart_2016 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2016")
+            .xLeft(function (d) { return +d.FEMENINO_2016; })
+            .xRight(function (d) { return +d.MASCULINO_2016; })
+            .y(function (d) { return d.EDAD; });
+
+        var myGenderChart_2015 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2015")
+            .xLeft(function (d) { return +d.FEMENINO_2015; })
+            .xRight(function (d) { return +d.MASCULINO_2015; })
+            .y(function (d) { return d.EDAD; });
+
+        var myGenderChart_2014 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2014")
+            .xLeft(function (d) { return +d.FEMENINO_2014; })
+            .xRight(function (d) { return +d.MASCULINO_2014; })
+            .y(function (d) { return d.EDAD; });
+
+        var myGenderChart_2013 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2013")
+            .xLeft(function (d) { return +d.FEMENINO_2013; })
+            .xRight(function (d) { return +d.MASCULINO_2013; })
+            .y(function (d) { return d.EDAD; });
+
+        var myGenderChart_2012 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2012")
+            .xLeft(function (d) { return +d.FEMENINO_2012; })
+            .xRight(function (d) { return +d.MASCULINO_2012; })
+            .y(function (d) { return d.EDAD; });
+
+        var myGenderChart_2011 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2011")
+            .xLeft(function (d) { return +d.FEMENINO_2011; })
+            .xRight(function (d) { return +d.MASCULINO_2011; })
+            .y(function (d) { return d.EDAD; });
+
+        var myGenderChart_2010 = genderChart()
+            .width(400)
+            .height(300)
+            .title("2010")
+            .xLeft(function (d) { return +d.FEMENINO_2010; })
+            .xRight(function (d) { return +d.MASCULINO_2010; })
+            .y(function (d) { return d.EDAD; });
+
+        d3.tsv("data/Hurto celulares - Edad2.tsv",
+            function (err, data) {
+                if (err) throw err;
+
+                d3.select("#gender_2016").datum(data).call(myGenderChart_2016);
+                d3.select("#gender_2015").datum(data).call(myGenderChart_2015);
+                d3.select("#gender_2014").datum(data).call(myGenderChart_2014);
+                d3.select("#gender_2013").datum(data).call(myGenderChart_2013);
+                d3.select("#gender_2012").datum(data).call(myGenderChart_2012);
+                d3.select("#gender_2011").datum(data).call(myGenderChart_2011);
+                d3.select("#gender_2010").datum(data).call(myGenderChart_2010);
+            });
+    </script>
+</body>
+
+</html>
