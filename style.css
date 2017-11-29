@@ -28,3 +28,9 @@ div{
     width: 30%;
     height: 500px;
 }
+hr{
+    clear: both;
+}
+footer{
+    padding: 20px;
+}
